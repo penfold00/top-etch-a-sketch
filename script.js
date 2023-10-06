@@ -1,7 +1,14 @@
-function createGrid(totalWidth, squareAmount) {
+function createGrid(gridWidth, squaresPerSide) {
   const gridContainer = document.querySelector(".grid");
-  let squareDimensions = totalWidth / Math.sqrt(squareAmount);
-  for (let i = 0; i < squareAmount; i++) {
+  gridContainer.style["width"] = gridWidth + "px";
+  //reset existing Grid
+  gridContainer.textContent = "";
+
+  //max 100 per side
+  squaresPerSide = squaresPerSide > 100 ? 16 : squaresPerSide;
+
+  let squareDimensions = gridWidth / squaresPerSide;
+  for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
     let square = document.createElement("div");
     square.style.cssText = `width: ${squareDimensions}px; height: ${squareDimensions}px`;
     square.classList.add("square");
@@ -10,7 +17,7 @@ function createGrid(totalWidth, squareAmount) {
     addHoverListener(square);
   }
 }
-createGrid(800, 16);
+createGrid(600, 100);
 
 function addHoverListener(element) {
   element.addEventListener("mouseover", () => {
@@ -20,5 +27,10 @@ function addHoverListener(element) {
 }
 
 function hoverEffect(element) {
-  element.classList.toggle("activated");
+  element.classList.add("activated");
 }
+
+const newGridButton = document.querySelector("#new-grid");
+newGridButton.addEventListener("click", () => {
+  createGrid(600, parseInt(prompt("Squares per side?")));
+});
