@@ -22,16 +22,20 @@
         width: 600px;
       }
       .square {
-        background: brown;
         border: 1px solid black;
-      }
-      .activated {
-        background: grey !important;
       }
     </style>
   </head>
   <body>
-    <div class="options"><button id="new-grid">New Grid</button></div>
+    <div class="options">
+      <button id="new-grid">New Grid</button><br /><br />
+      <input type="radio" name="mode" id="simple" value="simple" checked />
+      <label for="simple">simple</label>
+      <input type="radio" name="mode" id="rainbow" value="rainbow" />
+      <label for="rainbow">rainbow</label>
+      <input type="radio" name="mode" id="blacken" value="blacken" />
+      <label for="blacken">blacken</label>
+    </div>
     <div class="grid"></div>
 
     <script src="script.js"></script>
