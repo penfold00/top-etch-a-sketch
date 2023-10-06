@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOP - Etch a Sketch</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .grid {
+        width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 50px auto;
+      }
+      .square {
+        background: brown;
+        border: 1px solid black;
+      }
+      .activated {
+        background: grey !important;
+      }
+    </style>
   </head>
   <body>
+    <div class="grid"></div>
+
     <script src="script.js"></script>
   </body>
 </html>
